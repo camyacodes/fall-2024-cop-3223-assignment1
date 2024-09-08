@@ -7,7 +7,7 @@
 CFLAGS  = -g -Wall
 
 # the build target executable:
-TARGET = lab1
+TARGET = fracturing
 
 default: all
 
