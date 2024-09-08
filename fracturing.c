@@ -11,9 +11,15 @@
 
 // Getting the user's typed in values for each point
 double askForUserInput(){
-    double point = 0;
-    scanf("%lf", &point);
+    int point = 0;
+    scanf("%d", &point);
     return point; 
+}
+
+// Print the x and y coordinates that the user entered
+void printCoordinates(int x1, int y1, int x2, int y2){
+    printf("Point #1 entered: x1 = %d; y1 = %d \n", x1, y1);
+    printf("Point #2 entered: x2 = %d; y2 = %d \n", x2, y2);
 }
 
 // formula for calculating diameter or distance between 2 points
@@ -21,141 +27,77 @@ double diameterFormula(int x1, int y1, int x2, int y2){
  return sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)));
 }
 
-// Print x and y coordinates the user entered
-void printCoordinates(int x1, int y1, int x2, int y2){
-    printf("Point #1 entered: x1 = %d; y1 = %d \n", x1, y1);
-    printf("Point #2 entered: x2 = %d; y2 = %d \n", x2, y2);
-}
-
-double calculateDistance(){
-    int x1 = 0;
-    int x2 = 0;
-    int y1 = 0;
-    int y2 = 0;
+// helper function that grabs user defined coordinates a calculates the diameter of the circle / city
+double getPointsAndDiameter(){
 
     // Get x points
     printf("Please enter first x point: ");
-    x1 = askForUserInput(); 
+    int x1 = askForUserInput(); 
     printf("Please enter second x point: ");
-    x2 = askForUserInput();
+    int x2 = askForUserInput();
 
     // Get y points
     printf("Please enter first y point: ");
-    y1 = askForUserInput();
+    int y1 = askForUserInput();
     printf("Please enter second y point: ");
-    y2 = askForUserInput();
+    int y2 = askForUserInput();
     
     printCoordinates(x1, y1, x2, y2);
 
     // Calculate and print distance
-    double distance = diameterFormula(x1, y1, x2, y2);
+    double diameter = diameterFormula(x1, y1, x2, y2);
+
+    return diameter;
+}
+
+double calculateDistance(){
+
+    double distance = getPointsAndDiameter();
+
     printf("The distance between the two points is %.3lf \n", distance);
 
     return distance;    
 }
 
+// Calculate and print perimeter
 double calculatePerimeter(){
-    int x1 = 0;
-    int x2 = 0;
-    int y1 = 0;
-    int y2 = 0;
+
+    double diameter = getPointsAndDiameter();
     
-    // Get x points
-    printf("Please enter first x point: ");
-    x1 = askForUserInput(); 
-    printf("Please enter second x point: ");
-    x2 = askForUserInput();
-
-    // Get y points
-    printf("Please enter first y point: ");
-    y1 = askForUserInput();
-    printf("Please enter second y point: ");
-    y2 = askForUserInput();
-
-    printCoordinates(x1, y1, x2, y2);
-
-    // Calculate and print perimeter
-    double diameter = diameterFormula(x1, y1, x2, y2);
     double perimeter = PI * diameter;
+
     printf("The perimeter of the city encompassed by your request is %.3lf \n", perimeter);
 
     return 1;
 }
 
+// Calculate and print area
 double calculateArea(){
-    int x1 = 0;
-    int x2 = 0;
-    int y1 = 0;
-    int y2 = 0;
-       // Get x points
-    printf("Please enter first x point: ");
-    x1 = askForUserInput(); 
-    printf("Please enter second x point: ");
-    x2 = askForUserInput();
 
-    // Get y points
-    printf("Please enter first y point: ");
-    y1 = askForUserInput();
-    printf("Please enter second y point: ");
-    y2 = askForUserInput();
-    
-    printCoordinates(x1, y1, x2, y2);
+    double diameter = getPointsAndDiameter();
 
-    // Calculate and print area
-    double diameter = diameterFormula(x1, y1, x2, y2);
     double area = PI * pow(diameter/2, 2);
+
     printf("The area of the city encompassed by your request is %.3lf \n", area);
 
     return 1;
 }
 
+// Calculate and print width / diameter
 double calculateWidth(){
-    int x1 = 0;
-    int x2 = 0;
-    int y1 = 0;
-    int y2 = 0;
-       // Get x points
-    printf("Please enter first x point: ");
-    x1 = askForUserInput(); 
-    printf("Please enter second x point: ");
-    x2 = askForUserInput();
 
-    // Get y points
-    printf("Please enter first y point: ");
-    y1 = askForUserInput();
-    printf("Please enter second y point: ");
-    y2 = askForUserInput();
-    
-    printCoordinates(x1, y1, x2, y2);
+    double width = getPointsAndDiameter();
 
-    // Calculate and print width
-    double width = diameterFormula(x1, y1, x2, y2);
     printf("The width of the city encompassed by your request is %.3lf \n", width);
 
     return 1;    
 }
 
+// Calculate and print height / diameter
 double calculateHeight(){
-    int x1 = 0;
-    int x2 = 0;
-    int y1 = 0;
-    int y2 = 0;
-       // Get x points
-    printf("Please enter first x point: ");
-    x1 = askForUserInput(); 
-    printf("Please enter second x point: ");
-    x2 = askForUserInput();
 
-    // Get y points
-    printf("Please enter first y point: ");
-    y1 = askForUserInput();
-    printf("Please enter second y point: ");
-    y2 = askForUserInput();
-    
-    printCoordinates(x1, y1, x2, y2);
+    double height = getPointsAndDiameter();
 
-    // Calculate and print height
-    double height = diameterFormula(x1, y1, x2, y2);
     printf("The height of the city encompassed by your request is %.3lf \n", height);
 
     return 1;    
@@ -163,11 +105,11 @@ double calculateHeight(){
 
 int main (int argc, char **argv)
 {
-    calculatePerimeter ();
-    calculateArea ();
-    calculateWidth ();
-    calculateHeight ();
-    calculateDistance ();
+    calculateDistance();
+    calculatePerimeter();
+    calculateArea();
+    calculateWidth();
+    calculateHeight();
 
     return 0;
 }
