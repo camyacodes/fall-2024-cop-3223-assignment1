@@ -5,9 +5,10 @@
 // Class: COP 3223, Professor Parra
 // //********************************************************
 
+#define PI 3.14159
 #include <stdio.h>
 #include <math.h>
-#define PI 3.14159
+
 
 
 
@@ -137,11 +138,11 @@ double calculateHeight(){
 
 int main (int argc, char **argv)
 {
-    calculateDistance ();
     calculatePerimeter ();
     calculateArea ();
     calculateWidth ();
     calculateHeight ();
+    calculateDistance ();
 
     return 0;
 }
