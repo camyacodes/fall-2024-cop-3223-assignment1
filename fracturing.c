@@ -9,27 +9,28 @@
 #include <math.h>
 #define PI 3.14159
 
-// Getting the user's typed in values for each point
+// OBJECTIVE: get the user's typed in value for a point
 double askForUserInput(){
     int point = 0;
+
     scanf("%d", &point);
+
     return point; 
 }
 
-// Print the x and y coordinates that the user entered
-void printCoordinates(int x1, int y1, int x2, int y2){
+// OBJECTIVE: print the x and y coordinates that the user entered
+void printCoordinates(int x1, int y1, int x2, int y2){ 
     printf("Point #1 entered: x1 = %d; y1 = %d \n", x1, y1);
     printf("Point #2 entered: x2 = %d; y2 = %d \n", x2, y2);
 }
 
-// formula for calculating diameter or distance between 2 points
+// OBJECTIVE: calculate diameter or distance between 2 points
 double diameterFormula(int x1, int y1, int x2, int y2){
  return sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)));
 }
 
-// helper function that grabs user defined coordinates a calculates the diameter of the circle / city
+// OBJECTIVE: get user defined coordinates and calculate the diameter of the circle / city
 double getPointsAndDiameter(){
-
     // Get x points
     printf("Please enter first x point: ");
     int x1 = askForUserInput(); 
@@ -44,14 +45,14 @@ double getPointsAndDiameter(){
     
     printCoordinates(x1, y1, x2, y2);
 
-    // Calculate and print distance
+    // Calculate and print diameter
     double diameter = diameterFormula(x1, y1, x2, y2);
 
     return diameter;
 }
 
+// OBJECTIVE: Calculate and print distance / diameter 
 double calculateDistance(){
-
     double distance = getPointsAndDiameter();
 
     printf("The distance between the two points is %.3lf \n", distance);
@@ -59,9 +60,8 @@ double calculateDistance(){
     return distance;    
 }
 
-// Calculate and print perimeter
+// OBJECTIVE: Calculate and print perimeter
 double calculatePerimeter(){
-
     double diameter = getPointsAndDiameter();
     
     double perimeter = PI * diameter;
@@ -71,9 +71,8 @@ double calculatePerimeter(){
     return 1;
 }
 
-// Calculate and print area
+// OBJECTIVE: Calculate and print area
 double calculateArea(){
-
     double diameter = getPointsAndDiameter();
 
     double area = PI * pow(diameter/2, 2);
@@ -83,9 +82,8 @@ double calculateArea(){
     return 1;
 }
 
-// Calculate and print width / diameter
+// OBJECTIVE: Calculate and print width / diameter
 double calculateWidth(){
-
     double width = getPointsAndDiameter();
 
     printf("The width of the city encompassed by your request is %.3lf \n", width);
@@ -93,9 +91,8 @@ double calculateWidth(){
     return 1;    
 }
 
-// Calculate and print height / diameter
+// OBJECTIVE: Calculate and print height / diameter
 double calculateHeight(){
-
     double height = getPointsAndDiameter();
 
     printf("The height of the city encompassed by your request is %.3lf \n", height);
@@ -103,8 +100,8 @@ double calculateHeight(){
     return 1;    
 }
 
-int main (int argc, char **argv)
-{
+int main (int argc, char **argv){
+
     calculateDistance();
     calculatePerimeter();
     calculateArea();
