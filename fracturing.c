@@ -51,7 +51,7 @@ double getPointsAndDiameter(){
     return diameter;
 }
 
-// OBJECTIVE: Calculate and print distance / diameter 
+// OBJECTIVE: Calculate and print distance which is the same as diameter 
 double calculateDistance(){
     double distance = getPointsAndDiameter();
 
