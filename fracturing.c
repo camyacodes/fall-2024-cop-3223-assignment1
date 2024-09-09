@@ -9,7 +9,7 @@
 #include <math.h>
 #define PI 3.14159
 
-// OBJECTIVE: get the user's typed in value for a point
+// OBJECTIVE: helper function to get the user's typed in value for a point
 double askForUserInput(){
     int point = 0;
 
@@ -18,18 +18,18 @@ double askForUserInput(){
     return point; 
 }
 
-// OBJECTIVE: print the x and y coordinates that the user entered
+// OBJECTIVE: helper function to print the x and y coordinates that the user entered
 void printCoordinates(int x1, int y1, int x2, int y2){ 
     printf("Point #1 entered: x1 = %d; y1 = %d \n", x1, y1);
     printf("Point #2 entered: x2 = %d; y2 = %d \n", x2, y2);
 }
 
-// OBJECTIVE: calculate diameter or distance between 2 points
+// OBJECTIVE: helper function to calculate diameter or distance between 2 points
 double diameterFormula(int x1, int y1, int x2, int y2){
  return sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)));
 }
 
-// OBJECTIVE: get user defined coordinates and calculate the diameter of the circle / city
+// OBJECTIVE: helper function to get user defined coordinates and calculate the diameter of the circle / city
 double getPointsAndDiameter(){
     // Get x points
     printf("Please enter first x point: ");
